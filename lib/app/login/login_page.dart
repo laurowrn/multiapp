@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height - 410,
               width: MediaQuery.of(context).size.width - 80,
               child: Card(
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.white.withOpacity(0.9),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
@@ -35,17 +35,10 @@ class LoginPage extends StatelessWidget {
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.purpleAccent),
                           labelText: 'Email',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.cyan),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.cyan),
-                          ),
+                          border: OutlineInputBorder(),
                           counterText: '',
                         ),
-                        style: TextStyle(color: Colors.purple),
                         maxLength: 30,
                         maxLines: 1,
                       ),
@@ -53,43 +46,29 @@ class LoginPage extends StatelessWidget {
                         height: 30,
                       ),
                       TextField(
-                        controller: emailController,
+                        controller: passwordController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.purpleAccent),
                           labelText: 'Senha',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.cyan),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.cyan),
-                          ),
+                          border: OutlineInputBorder(),
                           counterText: '',
                         ),
-                        style: TextStyle(color: Colors.purple),
-                        maxLength: 30,
+                        maxLength: 15,
                         maxLines: 1,
+                        obscureText: true,
                       ),
                       SizedBox(
                         height: 30,
                       ),
-                      ButtonTheme(
-                        buttonColor: Colors.deepPurpleAccent,
-                        height: 50,
-                        minWidth: 200,
-                        child: RaisedButton(
-                          child: Text(
-                            'Login',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          onPressed: () {
-                            loginController.doLogin(
-                              emailController.text,
-                              passwordController.text,
-                              context,
-                            );
-                          },
-                        ),
+                      RaisedButton(
+                        child: Text('Login'),
+                        onPressed: () {
+                          loginController.doLogin(
+                            emailController.text,
+                            passwordController.text,
+                            context,
+                          );
+                        },
                       )
                     ],
                   ),
