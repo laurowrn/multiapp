@@ -53,8 +53,8 @@ class LoginPage extends StatelessWidget {
                         height: 30,
                       ),
                       TextField(
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
+                        controller: passwordController,
+                        keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           labelStyle: TextStyle(color: Colors.purpleAccent),
                           labelText: 'Senha',
@@ -66,6 +66,7 @@ class LoginPage extends StatelessWidget {
                           ),
                           counterText: '',
                         ),
+                        obscureText: true,
                         style: TextStyle(color: Colors.purple),
                         maxLength: 30,
                         maxLines: 1,
