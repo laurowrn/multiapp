@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:multiapp/app/login/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
+  LoginController loginController = LoginController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -27,6 +32,7 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                     children: [
                       TextField(
+                        controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           labelText: 'Email',
@@ -40,6 +46,7 @@ class LoginPage extends StatelessWidget {
                         height: 30,
                       ),
                       TextField(
+                        controller: passwordController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           labelText: 'Senha',
@@ -56,7 +63,11 @@ class LoginPage extends StatelessWidget {
                       RaisedButton(
                         child: Text('Login'),
                         onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/home');
+                          loginController.doLogin(
+                            emailController.text,
+                            passwordController.text,
+                            context,
+                          );
                         },
                       )
                     ],
